@@ -1,0 +1,3 @@
+server : 212.19.138.99
+login : dev
+password : P@ssw0rd
