@@ -1,0 +1,5 @@
+.DS_Store
+*.db
+*.pyc
+vis_env/*
+uploads/*

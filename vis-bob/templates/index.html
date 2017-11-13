@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cluster visualization</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Cluster visualization</a>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#">Home</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <h4 class="text-center">Clusters</h4>
+        <div id="scatter"></div>  
+        
+        <hr />
+        
+        <div class="panel panel-info cluster-info display-none">
+          <div class="panel-heading">
+            <h3 class="panel-title">Cluster #<span class="cluster_id"></span></h3>
+          </div>
+          <div class="panel-body">
+              <table class="table table-hover cluster-table">
+                <thead>
+                  <tr>
+                    <th>Cluster</th>
+                    <th>Count</th>
+                    <th>Words</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <h4 class="text-center display-none cluster-detail-title">Details of Cluster #<span class="cluster_id"></span></h4>
+        <div id="scatter2"></div> 
+
+        <hr />
+        
+        <div class="panel panel-info cluster-detail display-none">
+          <div class="panel-heading">
+            <h3 class="panel-title">#<span class="cluster_id"></span> Cluster Selected Point</h3>
+          </div>
+          <div class="panel-body">
+              <table class="table table-hover cluster-detail-table">
+                <thead>
+                  <tr>
+                    <th>Cluster</th>
+                    <th>Item</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+          </div>
+        </div>         
+      </div>
+    </div>
+    
+
+
+  </div>
+    
+  
+  {% block scripts %} 
+  <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/d3.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/tips.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% endblock %}
+</body>
+</html>
