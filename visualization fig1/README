@@ -1,0 +1,16 @@
+objects.selectAll(".dot")
+    .data(data)
+  .enter().append("circle")
+    .classed("dot", true)
+    .attr("r", function (d) { return 6 * Math.sqrt(d[count]/100 / Math.PI); })
+    .attr("transform", transform)
+    .style("fill", function(d) { return color(d[count]); })
+    .on("mouseover", tip.show)
+    .on("mouseout", tip.hide)
+    .on('click', function(d){
+    /*
+    можно через d[id] без кавычек обратиться к файлу id.csv Жасулана и отрисовать компании для второго графика  
+    */
+    });
+
+;
