@@ -170,27 +170,30 @@ function drawClusters(){
  * @param  {Number} cluster_id selected cluster
  * 
  */
-function drawDetail(cluster_id){
-  // console.clear();
+function drawDetail(cluster){
+  console.clear();
 
   /** clear prev data */
   $('#scatter2').html("");
 
-  let item_id = "item_id",
+  let cluster_id = "cluster_id",
+    item_id = "item_id",
     vx = "x",
     vy = "y",
     item_name = "item_name";
 
   /** read selected cluster data from csv */
-  d3.csv("static/data/details/"+cluster_id+".csv", function(data) {
-    
-    console.log(cluster_id);
+  d3.csv("static/data/details/"+cluster+".csv", function(data) {
+
+    console.log(cluster);
+    console.log(data);
 
     data.forEach(function(d) {
       d[cluster_id] = +d[cluster_id];
       d[item_id] = +d[item_id];
       d[vx] = +d[vx];
       d[vy] = +d[vy];
+      d[item_name] = d[item_name];
     });
 
     // console.log(data);
@@ -219,7 +222,7 @@ function drawDetail(cluster_id){
         .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function(d) {
-          return item_name + ": " + d[item_name];
+          return "Company: " + d[item_name];
         });
 
     let zoomBeh = d3.behavior.zoom()
