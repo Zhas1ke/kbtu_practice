@@ -219,7 +219,7 @@ function drawDetail(cluster_id){
         .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function(d) {
-          return company_name + ": " + d[item_name];
+          return item_name + ": " + d[item_name];
         });
 
     let zoomBeh = d3.behavior.zoom()
