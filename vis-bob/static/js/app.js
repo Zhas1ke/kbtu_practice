@@ -138,6 +138,8 @@ function drawClusters(){
 
     /** Click on cluster event handler */
     function click(d){
+      $('#scatter .dot').removeClass('active');
+      $(this).addClass('active');
 
       // console.log(d['cluster_id']);
 
@@ -176,7 +178,8 @@ function drawDetail(cluster_id){
 
   let item_id = "item_id",
     vx = "x",
-    vy = "y";
+    vy = "y",
+    item_name = "item_name";
 
   /** read selected cluster data from csv */
   d3.csv("static/data/details/"+cluster_id+".csv", function(data) {
@@ -216,7 +219,7 @@ function drawDetail(cluster_id){
         .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function(d) {
-          return item_id + ": " + d[item_id];
+          return company_name + ": " + d[item_name];
         });
 
     let zoomBeh = d3.behavior.zoom()
@@ -294,6 +297,9 @@ function drawDetail(cluster_id){
 
         /** Deteil point click event handler  */
         function click(d){
+          $('#scatter2 .dot').removeClass('active');
+          $(this).addClass('active');
+
           /** Show Detail info table */
           clickedClusterDetail(d);
         }
@@ -337,6 +343,7 @@ function clickedClusterDetail(d){
         '<tr>\
           <td>'+d['cluster_id']+'</td>\
           <td>'+d['item_id']+'</td>\
+          <td>'+d['item_name']+'</td>\
         </tr>'
   );
 }
@@ -348,7 +355,9 @@ function replaceClass(el, klass1, klass2){
 }
 
 
-
-
 /** Class firt time to show Clusters */
 drawClusters();
+
+
+
+

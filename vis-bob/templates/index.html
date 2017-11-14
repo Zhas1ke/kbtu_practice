@@ -9,11 +9,6 @@
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">Cluster visualization</a>
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="#">Home</a>
-        </li>
-      </ul>
     </div>
   </nav>
   
@@ -46,21 +41,22 @@
 
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <h4 class="text-center display-none cluster-detail-title">Details of Cluster #<span class="cluster_id"></span></h4>
+        <h4 class="text-center display-none cluster-detail-title">Companies of Cluster #<span class="cluster_id"></span></h4>
         <div id="scatter2"></div> 
 
         <hr />
         
         <div class="panel panel-info cluster-detail display-none">
           <div class="panel-heading">
-            <h3 class="panel-title">#<span class="cluster_id"></span> Cluster Selected Point</h3>
+            <h3 class="panel-title">#<span class="cluster_id"></span> Cluster Selected Company</h3>
           </div>
           <div class="panel-body">
               <table class="table table-hover cluster-detail-table">
                 <thead>
                   <tr>
                     <th>Cluster</th>
-                    <th>Item</th>
+                    <th>Company id</th>
+                    <th>Company Name</th>
                   </tr>
                 </thead>
                 <tbody></tbody>

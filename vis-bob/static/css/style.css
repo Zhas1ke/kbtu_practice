@@ -24,6 +24,12 @@ rect {
   cursor: pointer;
 }
 
+.dot.active{
+  fill-opacity: 1;
+  stroke-width: 3px;
+  stroke: rgb(34, 34, 34);
+}
+
 .d3-tip {
   line-height: 1;
   font-weight: bold;
