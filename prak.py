@@ -20,7 +20,7 @@ print ('Path to data folder:', data_path)
 n = len(os.listdir(data_path))
 print ('Number of clusters:', n)
 
-'''
+
 # Centroids
 centroids = pd.DataFrame()
 for i in range(n):
@@ -28,22 +28,24 @@ for i in range(n):
 	centroid = pd.read_csv('{}\\{}\\{}'.format(data_path, i, 'centroid_vector.txt'), sep=',', header=None)
 	centroids = centroids.append(centroid)
 
-tsne_model = TSNE(n_components=2, random_state=12345, verbose=2, n_iter=100000, n_iter_without_progress=300, learning_rate=100, angle=0.999)
-# perplexity=30.0,
-# early_exaggeration=12.0,
-# init= ['random','pca']
-# method=['barnes_hut','exact']
+# tsne_model = TSNE(n_components=2, random_state=12345, verbose=2, n_iter=100000, n_iter_without_progress=300, learning_rate=100, angle=0.999)
+# centroids_2d = pd.DataFrame(tsne_model.fit_transform(centroids))
+# centroids_2d.reset_index(inplace=True, drop=False)
+# centroids_2d.columns = ['cluster_id', 'x', 'y']
+# centroids_2d.to_csv('2d/centroids_2d.csv', index=None)
 
-centroids_2d = pd.DataFrame(tsne_model.fit_transform(centroids))
-centroids_2d.reset_index(inplace=True, drop=False)
-centroids_2d.columns = ['cluster_id', 'x', 'y']
-centroids_2d.to_csv('2d/centroids_2d.csv', index=None)
 
+tsne_model = TSNE(n_components=3, random_state=12345, verbose=2, n_iter=100000, n_iter_without_progress=300, learning_rate=100, angle=0.999)
+centroids_3d = pd.DataFrame(tsne_model.fit_transform(centroids))
+centroids_3d.reset_index(inplace=True, drop=False)
+centroids_3d.columns = ['cluster_id', 'x', 'y', 'z']
+centroids_3d.to_csv('3d/centroids_3d.csv', index=None)
+exit()
 # Plot in matplotlib
-fig, ax = plt.subplots()
-ax.plot(centroids_2d[:,0], centroids_2d[:,1], 'o')
-plt.show()
-'''
+# fig, ax = plt.subplots()
+# ax.plot(centroids_2d[:,0], centroids_2d[:,1], 'o')
+# plt.show()
+
 
 # Points
 points = pd.DataFrame()
