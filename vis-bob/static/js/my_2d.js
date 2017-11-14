@@ -1,4 +1,3 @@
-
 /** Global variables for both charts */
 var margin = { top: 20, right: 20, bottom: 30, left: 30 },
     outerWidth = 690,
@@ -23,7 +22,7 @@ function drawClusters(){
       words = "words";
 
   /** read data from csv file -- with cluster cetroids */
-  d3.csv("static/data/centroids_2d.csv", function(data) {
+  d3.csv("static/data/2d/centroids_2d.csv", function(data) {
     
     /** type casting Number types */
     data.forEach(function(d) {
@@ -183,7 +182,7 @@ function drawDetail(cluster){
     item_name = "item_name";
 
   /** read selected cluster data from csv */
-  d3.csv("static/data/details/"+cluster+".csv", function(data) {
+  d3.csv("static/data/2d/details/"+cluster+".csv", function(data) {
 
     console.log(cluster);
     console.log(data);

@@ -1,0 +1,29 @@
+{% extends 'layout.html.j2' %}
+
+{% block title %} 3D {% endblock %}
+
+{% block head %}
+{{super()}}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/x3dom.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div id="myDiv" style="width:1000px;height:100%"></div>
+</div>
+
+{% endblock %}
+
+
+ 
+
+{% block scripts %}  
+  {{ super() }}
+
+  {# <script src="{{ url_for('static', filename='js/x3dom.js') }}"></script> #}
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <script src="{{ url_for('static', filename='js/my_3d.js') }}"></script>
+  
+{% endblock %}

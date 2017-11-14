@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Cluster visualization</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Cluster visualization</a>
-    </div>
-  </nav>
-  
+
+{% extends 'layout.html.j2' %}
+
+{% block title %} Home {% endblock %}
+
+
+
+{% block content %}
+
+
   <div class="container">
     
     <div class="row">
@@ -64,19 +60,19 @@
           </div>
         </div>         
       </div>
-    </div>
-    
-
-
+    </div>   
   </div>
-    
+
+
+{% endblock %}
   
-  {% block scripts %} 
-  <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/d3.js') }}"></script>
+{% block scripts %}  
+
+  {{ super() }}
   <script src="{{ url_for('static', filename='js/tips.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  {% endblock %}
-</body>
-</html>
+  <script src="{{ url_for('static', filename='js/my_2d.js') }}"></script>
+
+{% endblock %}
+
+  
+    
